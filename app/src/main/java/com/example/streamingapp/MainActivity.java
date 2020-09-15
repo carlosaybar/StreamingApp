@@ -15,6 +15,7 @@ package com.example.streamingapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
@@ -25,6 +26,9 @@ public class MainActivity extends AppCompatActivity
     /**
      * Class Objects
      */
+    private static int REQUEST_CAPTURE = 101;
+    private Uri videoUri = null;
+
     Button redBoi;
 
     @Override
@@ -32,7 +36,7 @@ public class MainActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+/*
         // OnClickListener for record button
         redBoi = findViewById(R.id.rec_btn);
         redBoi.setOnClickListener(new View.OnClickListener()
@@ -40,15 +44,19 @@ public class MainActivity extends AppCompatActivity
           public void onClick(View v)
           {
 
-          }
-
-          }
+          })
         });
     }
+ */
 
     public void videoCapture(View v)
     {
         Intent captureIntent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+
+        if(captureIntent.resolveActivity(getPackageManager()) !=null)
+        {
+            startActivityForResult(captureIntent, REQUEST_CAPTURE);
+        }
 
     }
 }
