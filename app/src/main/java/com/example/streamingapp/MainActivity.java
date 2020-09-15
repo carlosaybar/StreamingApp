@@ -12,6 +12,7 @@
 
 package com.example.streamingapp;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -41,22 +42,33 @@ public class MainActivity extends AppCompatActivity
         redBoi = findViewById(R.id.rec_btn);
         redBoi.setOnClickListener(new View.OnClickListener()
         {
-          public void onClick(View v)
+          public void onClick(View view)
           {
-
-          })
+                videoCapture(view);
+          }
         });
-    }
  */
+    }
 
-    public void videoCapture(View v)
+    public void videoCapture(View view)
     {
         Intent captureIntent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
 
-        if(captureIntent.resolveActivity(getPackageManager()) !=null)
+        if (captureIntent.resolveActivity(getPackageManager()) != null)
         {
             startActivityForResult(captureIntent, REQUEST_CAPTURE);
         }
-
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data)
+    {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == REQUEST_CAPTURE && resultCode == RESULT_OK)
+        {
+            videoUri = data.getData();
+        }
+    }
+
 }
