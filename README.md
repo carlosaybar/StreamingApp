@@ -6,9 +6,10 @@ We live in a society wherein we might find ourselves in grave danger from one mo
 
 ## Code Example
 ![JFrameSS](https://user-images.githubusercontent.com/47075449/93409468-fa6bac80-f864-11ea-95b5-805e0689ef2e.PNG)
- 
+![JFrameSS](https://user-images.githubusercontent.com/47075449/93409494-09eaf580-f865-11ea-805a-b638f9b8011a.PNG)
 ## License
-
 STU © Andhy Gomez
+
 STU © Jared Sullin
+
 STU © Carlos Aybar De Los Santos
